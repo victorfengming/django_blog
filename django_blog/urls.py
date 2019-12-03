@@ -15,7 +15,25 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.http import HttpResponse
+from django.shortcuts import render
+
+
+def index(request):
+    content = {
+        'data': {'2': '张三',
+                 '3': '李四',
+                 '4': '王五',
+                 '5': '赵六',
+                 '6': '三',
+                 '7': '张',
+                 '8': '2张三'
+                 }
+    }
+    return render(request, 'index.html', content)
+
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    # url(r'^admin/', admin.site.urls),
+    url(r'^$', index),
 ]

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+    start
+    {{ data }}
+    <ul>
+        {% for k,v in data.items %}
+            {% if forloop.counter0|divisibleby:"2"  %}
+            
+{# 通过模板的方式 , 实现了 奇数偶数行颜色不一样 #}
+             <li style="color: blueviolet">
+                 <span>{{ k }}</span>
+                 <span>{{ v }}</span>
+             </li>
+                               {% else %}
+
+            <li style="color: aquamarine">
+                 <span>{{ k }}</span>
+                 <span>{{ v }}</span>
+             </li>
+                               {% endif %}
+
+        {% endfor %}
+    </ul>
+</body>
+</html>
